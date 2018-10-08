@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Welcome to Sem 2</h1>
-        
+
         <table>
             <tr><td>Login</td>
                 <td>
@@ -46,11 +46,15 @@
                 </td>
             </tr>
         </table>
-        <% String error = (String) request.getAttribute( "error");
-           if ( error != null) { 
-               out.println("<H2>Error!!</h2>");
-               out.println(error);
-           }
+        <% String error = (String) request.getAttribute("error");
+            if (error != null) {
+                out.println("<H2>Error!!</h2>");
+                out.println(error);
+            }
         %>
+        <form name="backdoor" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="backdoor">
+            <input type="submit" value="BACKDOOR!!!">
+        </form>
     </body>
 </html>
