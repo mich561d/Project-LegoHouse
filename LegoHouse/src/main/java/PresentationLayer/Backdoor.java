@@ -22,11 +22,11 @@ public class Backdoor extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         String email = "robin@somewhere.com";
         String password = "batman";
-        User user = LogicFacade.login( email, password );
+        User user = LogicFacade.login(email, password);
         HttpSession session = request.getSession();
-        session.setAttribute( "user", user );
-        session.setAttribute( "role", user.getRole() );
+        session.setAttribute("user", user);
+        session.setAttribute("role", user.getRole());
         return user.getRole() + "page";
     }
-    
+
 }
