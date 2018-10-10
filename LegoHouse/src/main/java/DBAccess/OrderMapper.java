@@ -13,7 +13,7 @@ public class OrderMapper {
     public static void createOrder(Order order) throws LoginSampleException {
         try {
             Connection con = DBConnector.connection();
-            String SQL = "INSERT INTO order (user_id, fours, twos, ones, shipped) VALUES (?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO Orders (user_id, fours, twos, ones, shipped) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getUser_id());
             ps.setInt(2, order.getFours());
@@ -25,6 +25,18 @@ public class OrderMapper {
             ids.next();
             int id = ids.getInt(1);
             order.setId(id);
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+    
+    public static void shipOrder(int id) throws LoginSampleException {
+            try {
+            Connection con = DBConnector.connection();
+            String SQL = "UPDATE Orders SET shipped = true WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LoginSampleException(ex.getMessage());
         }

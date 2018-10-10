@@ -30,7 +30,7 @@ public class UserMapper {
 
     public static User login(String email, String password) throws LoginSampleException {
         try {
-            Connection con = Connector.connection();
+            Connection con = DBConnector.connection();
             String SQL = "SELECT id, role FROM Users "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);

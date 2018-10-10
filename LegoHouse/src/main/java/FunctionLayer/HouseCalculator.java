@@ -28,7 +28,14 @@ public class HouseCalculator {
             case "green":
                 counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
                 break;
+            case "yellow":
+                counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
+                break;
+            case "red":
+                counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
+                break;
             default:
+                counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
                 break;
         }
         return counter;

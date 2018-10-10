@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `LegoHouseDatabase`.`Orders` (
     FOREIGN KEY (`user_id`)
     REFERENCES `LegoHouseDatabase`.`Users` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
