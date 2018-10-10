@@ -22,5 +22,5 @@ public class Contruct extends Command {
         request.getSession().setAttribute("ConLevel", level);
         return "plannerpage";
     }
-    
+
 }

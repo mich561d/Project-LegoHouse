@@ -3,9 +3,9 @@ package FunctionLayer;
 import java.util.HashMap;
 
 public class HouseCalculator {
-    
+
     private static HouseCalculator singleton;
-    
+
     public static HouseCalculator Calculator() {
         if (singleton == null) {
             singleton = new HouseCalculator();

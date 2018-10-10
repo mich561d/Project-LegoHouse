@@ -53,8 +53,6 @@ public class Order {
         this.ones = ones;
     }
 
-    
-
     public boolean isShipped() {
         return shipped;
     }

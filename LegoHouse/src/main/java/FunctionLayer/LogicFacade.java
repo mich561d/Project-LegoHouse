@@ -14,12 +14,12 @@ public class LogicFacade {
         DBFacade.createUser(user);
         return user;
     }
-    
+
     public static HashMap<String, Integer> createList(int length, int width, int height, String level) {
         return HouseCalculator.Calculator().buildHouse(length, width, height, level);
     }
-    
-    public static void placeOrder (Order order) throws LoginSampleException {
+
+    public static void placeOrder(Order order) throws LoginSampleException {
         DBFacade.createOrder(order);
     }
 

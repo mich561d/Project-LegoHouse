@@ -13,7 +13,7 @@ public class OrderMapper {
     public static void createOrder(Order order) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Orders (user_id, fours, twos, ones, shipped) VALUES (?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO order (user_id, fours, twos, ones, shipped) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getUser_id());
             ps.setInt(2, order.getFours());
