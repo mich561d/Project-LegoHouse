@@ -19,7 +19,7 @@ public class OrderMapper {
             ps.setInt(2, order.getFours());
             ps.setInt(3, order.getTwos());
             ps.setInt(4, order.getOnes());
-            ps.setBoolean(5, order.isShipped());
+            ps.setString(5, order.isShipped());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
