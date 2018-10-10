@@ -17,11 +17,6 @@ public class YellowCalculator {
 
     public HashMap<String, Integer> calculateHouse(HashMap<String, Integer> counter, int length, int width, int height) {
         this.counter = counter;
-        /*
-        Calculate first layer by calc length, then width minus 4
-        Calculate second layer by calc width, then length minus 4
-        and so on (height times)
-         */
         for (int i = 1; i <= height; i++) {
             if (i % 2 == 0) {
                 calculateLength(length);
