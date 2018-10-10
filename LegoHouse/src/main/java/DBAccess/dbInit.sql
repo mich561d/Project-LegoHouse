@@ -1,6 +1,5 @@
 CREATE DATABASE  IF NOT EXISTS `useradmin`;
 
-
 USE `useradmin`;
 
 DROP TABLE IF EXISTS `user`;
