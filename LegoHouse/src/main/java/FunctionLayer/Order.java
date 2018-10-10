@@ -2,13 +2,14 @@ package FunctionLayer;
 
 public class Order {
 
-    int id, length, width, height;
+    int id, user_id, fours, twos, ones;
     boolean shipped;
 
-    public Order(int length, int width, int height, boolean shipped) {
-        this.length = length;
-        this.width = width;
-        this.height = height;
+    public Order(int user_id, int fours, int twos, int ones, boolean shipped) {
+        this.user_id = user_id;
+        this.fours = fours;
+        this.twos = twos;
+        this.ones = ones;
         this.shipped = shipped;
     }
 
@@ -20,29 +21,39 @@ public class Order {
         this.id = id;
     }
 
-    public int getLength() {
-        return length;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public int getWidth() {
-        return width;
+    public int getFours() {
+        return fours;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public void setFours(int fours) {
+        this.fours = fours;
     }
 
-    public int getHeight() {
-        return height;
+    public int getTwos() {
+        return twos;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setTwos(int twos) {
+        this.twos = twos;
     }
+
+    public int getOnes() {
+        return ones;
+    }
+
+    public void setOnes(int ones) {
+        this.ones = ones;
+    }
+
+    
 
     public boolean isShipped() {
         return shipped;
@@ -51,6 +62,5 @@ public class Order {
     public void setShipped(boolean shipped) {
         this.shipped = shipped;
     }
-    
-    
+
 }

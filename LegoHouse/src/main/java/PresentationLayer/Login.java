@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.Facade;
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +13,7 @@ public class Login extends Command {
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        User user = Facade.login(email, password);
+        User user = LogicFacade.login(email, password);
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());

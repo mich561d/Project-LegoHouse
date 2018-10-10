@@ -10,15 +10,16 @@ import java.sql.Statement;
 
 public class OrderMapper {
 
-    public static void createUser(Order order) throws LoginSampleException {
+    public static void createOrder(Order order) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Orders (length, width, height, shipped) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO Orders (user_id, fours, twos, ones, shipped) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, order.getLength());
-            ps.setInt(2, order.getWidth());
-            ps.setInt(3, order.getHeight());
-            ps.setBoolean(4, order.isShipped());
+            ps.setInt(1, order.getUser_id());
+            ps.setInt(2, order.getFours());
+            ps.setInt(3, order.getTwos());
+            ps.setInt(4, order.getOnes());
+            ps.setBoolean(5, order.isShipped());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();

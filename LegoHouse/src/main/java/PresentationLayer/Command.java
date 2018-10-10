@@ -16,6 +16,7 @@ abstract class Command {
         commands.put("backdoor", new Backdoor());
         commands.put("planner", new Planner());
         commands.put("contruct", new Contruct());
+        commands.put("order", new PlaceOrder());
     }
 
     static Command from(HttpServletRequest request) {

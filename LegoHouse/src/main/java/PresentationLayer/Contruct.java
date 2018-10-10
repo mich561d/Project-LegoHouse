@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.Facade;
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +14,7 @@ public class Contruct extends Command {
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         String level = request.getParameter("level");
-        HashMap<String, Integer> list = Facade.createList(length, width, height, level);
+        HashMap<String, Integer> list = LogicFacade.createList(length, width, height, level);
         request.getSession().setAttribute("hasList", true);
         request.getSession().setAttribute("4x2Count", list.get("4x2"));
         request.getSession().setAttribute("2x2Count", list.get("2x2"));
