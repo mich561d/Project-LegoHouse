@@ -1,6 +1,7 @@
 package FunctionLayer;
 
 import java.util.HashMap;
+import FunctionLayer.LoginSampleException;
 
 public class HouseCalculator {
 
@@ -22,21 +23,20 @@ public class HouseCalculator {
         counter.put("1x2", 0);
     }
 
-    public HashMap<String, Integer> buildHouse(int length, int width, int height, String level) {
+    public HashMap<String, Integer> buildHouse(int length, int width, int height, String level) throws LoginSampleException {
         resetCounter();
         switch (level) {
             case "green":
                 counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
                 break;
             case "yellow":
-                counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
+                counter = YellowCalculator.Calculator().calculateHouse(counter, length, width, height);
                 break;
             case "red":
                 counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
                 break;
             default:
-                counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
-                break;
+                throw new LoginSampleException("Not valid input");
         }
         return counter;
     }

@@ -21,34 +21,41 @@ public class YellowCalculator {
         Calculate first layer by calc length, then width minus 4
         Calculate second layer by calc width, then length minus 4
         and so on (height times)
-        */
-        calculateLength(length); 
-        calculateWidth(width);
-        calculateHeight(height);
+         */
+        for (int i = 1; i <= height; i++) {
+            if (i % 2 == 0) {
+                calculateLength(length);
+                calculateWidth(width - 4);
+            } else {
+                calculateWidth(width);
+                calculateLength(length - 4);
+            }
+        }
+        calculateMirror();
         return this.counter;
     }
 
-    private void calculateHeight(int height) {
+    private void calculateMirror() {
         int oldfourxtwo = counter.get("4x2");
         int oldtwoxtwo = counter.get("2x2");
         int oldonextwo = counter.get("1x2");
-        counter.put("4x2", oldfourxtwo * height * 2);
-        counter.put("2x2", oldtwoxtwo * height * 2);
-        counter.put("1x2", oldonextwo * height * 2);
+        counter.put("4x2", oldfourxtwo * 2);
+        counter.put("2x2", oldtwoxtwo * 2);
+        counter.put("1x2", oldonextwo * 2);
     }
 
     private void calculateWidth(int width) {
-        int _width = width - 4;
-        for (int i = 0; i < _width;) {
-            if (i + 4 <= _width) {
+        //int _width = width - 4;
+        for (int i = 0; i < width;) {
+            if (i + 4 <= width) {
                 int oldVal = counter.get("4x2");
                 counter.put("4x2", ++oldVal);
                 i += 4;
-            } else if (i + 2 <= _width) {
+            } else if (i + 2 <= width) {
                 int oldVal = counter.get("2x2");
                 counter.put("2x2", ++oldVal);
                 i += 2;
-            } else if (i + 1 <= _width) {
+            } else if (i + 1 <= width) {
                 int oldVal = counter.get("1x2");
                 counter.put("1x2", ++oldVal);
                 i += 1;

@@ -15,7 +15,7 @@ public class LogicFacade {
         return user;
     }
 
-    public static HashMap<String, Integer> createList(int length, int width, int height, String level) {
+    public static HashMap<String, Integer> createList(int length, int width, int height, String level) throws LoginSampleException {
         return HouseCalculator.Calculator().buildHouse(length, width, height, level);
     }
 
