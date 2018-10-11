@@ -21,14 +21,14 @@
         </form>
         <hr>
         <h2> Your orders: </h2>
-        <table border="1" style="border-collapse: collapse; width: 100%;">
+        <table border="1" style="border-collapse: collapse; width: 50%;">
             <tbody>
                 <tr>
-                    <td style="width: 1%;">Id</td>
-                    <td style="width: 1%;">Length</td>
-                    <td style="width: 1%;">Width</td>
-                    <td style="width: 1%;">Height</td>
-                    <td style="width: 1%;">Shipped</td>
+                    <td style="width: 10%;">Id</td>
+                    <td style="width: 10%;">Length</td>
+                    <td style="width: 10%;">Width</td>
+                    <td style="width: 10%;">Height</td>
+                    <td style="width: 10%;">Shipped</td>
                 </tr>
                 <%  List<Order> orders = (List<Order>)request.getSession().getAttribute("orders");
                     for (int i = 0; i < (Integer)request.getSession().getAttribute("orderCount"); i++) { 
