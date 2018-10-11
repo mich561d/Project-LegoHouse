@@ -8,7 +8,6 @@
     </head>
     <body>
         <h1>Welcome to Sem 2</h1>
-
         <table>
             <tr><td>Login</td>
                 <td>
@@ -47,9 +46,5 @@
                 out.println(error);
             }
         %>
-        <form name="backdoor" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="backdoor">
-            <input type="submit" value="BACKDOOR!!!">
-        </form>
     </body>
 </html>

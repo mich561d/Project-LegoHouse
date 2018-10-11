@@ -47,9 +47,5 @@
                 out.println(error);
             }
         %>
-        <form name="backdoor" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="backdoor">
-            <input type="submit" value="BACKDOOR!!!">
-        </form>
     </body>
 </html>

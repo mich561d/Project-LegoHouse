@@ -2,14 +2,14 @@ package FunctionLayer;
 
 public class Order {
 
-    int id, user_id, fours, twos, ones;
+    int id, user_id, length, width, height;
     boolean shipped;
 
-    public Order(int user_id, int fours, int twos, int ones, boolean shipped) {
+    public Order(int user_id, int length, int width, int height, boolean shipped) {
         this.user_id = user_id;
-        this.fours = fours;
-        this.twos = twos;
-        this.ones = ones;
+        this.length = length;
+        this.width = width;
+        this.height = height;
         this.shipped = shipped;
     }
 
@@ -29,28 +29,28 @@ public class Order {
         this.user_id = user_id;
     }
 
-    public int getFours() {
-        return fours;
+    public int getLength() {
+        return length;
     }
 
-    public void setFours(int fours) {
-        this.fours = fours;
+    public void setLength(int length) {
+        this.length = length;
     }
 
-    public int getTwos() {
-        return twos;
+    public int getWidth() {
+        return width;
     }
 
-    public void setTwos(int twos) {
-        this.twos = twos;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
-    public int getOnes() {
-        return ones;
+    public int getHeight() {
+        return height;
     }
 
-    public void setOnes(int ones) {
-        this.ones = ones;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public String isShipped() {

@@ -17,6 +17,9 @@ public class Contruct extends Command {
         String level = request.getParameter("level");
         HashMap<String, Integer> list = LogicFacade.createList(length, width, height, level);
         request.getSession().setAttribute("hasList", true);
+        request.getSession().setAttribute("length", length);
+        request.getSession().setAttribute("width", width);
+        request.getSession().setAttribute("height", height);
         request.getSession().setAttribute("4x2Count", list.get("4x2"));
         request.getSession().setAttribute("2x2Count", list.get("2x2"));
         request.getSession().setAttribute("1x2Count", list.get("1x2"));
