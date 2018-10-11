@@ -7,7 +7,6 @@ import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.User;
 import java.util.HashMap;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,11 +27,6 @@ public class Contruct extends Command {
         request.getSession().setAttribute("2x2Count", list.get("2x2"));
         request.getSession().setAttribute("1x2Count", list.get("1x2"));
         request.getSession().setAttribute("ConLevel", level);
-        User user = (User)request.getSession().getAttribute("user");
-        int count = LogicFacade.getOrderCount(user.getId());
-        request.getSession().setAttribute("orderCount", count);
-        List<Order> orders = LogicFacade.getAllOrders(user.getId());
-        request.getSession().setAttribute("orders", orders);
         return "plannerpage";
     }
 
