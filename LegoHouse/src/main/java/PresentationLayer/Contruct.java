@@ -3,14 +3,18 @@ package PresentationLayer;
 import FunctionLayer.BuilderException;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Order;
+import FunctionLayer.OrderException;
+import FunctionLayer.User;
 import java.util.HashMap;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Contruct extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, BuilderException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, BuilderException, OrderException {
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
@@ -24,6 +28,11 @@ public class Contruct extends Command {
         request.getSession().setAttribute("2x2Count", list.get("2x2"));
         request.getSession().setAttribute("1x2Count", list.get("1x2"));
         request.getSession().setAttribute("ConLevel", level);
+        User user = (User)request.getSession().getAttribute("user");
+        int count = LogicFacade.getOrderCount(user.getId());
+        request.getSession().setAttribute("orderCount", count);
+        List<Order> orders = LogicFacade.getAllOrders(user.getId());
+        request.getSession().setAttribute("orders", orders);
         return "plannerpage";
     }
 

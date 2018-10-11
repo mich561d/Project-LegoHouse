@@ -4,6 +4,7 @@ import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.User;
+import java.util.List;
 
 public class DBFacade {
 
@@ -18,5 +19,13 @@ public class DBFacade {
 
     public static void createOrder(Order order) throws OrderException {
         OrderMapper.createOrder(order);
+    }
+    
+    public static int getOrderCount(int id) throws OrderException {
+        return OrderMapper.countOrders(id);
+    }
+    
+    public static List<Order> getAllOrders(int id) throws OrderException {
+        return OrderMapper.getAllOrders(id);
     }
 }

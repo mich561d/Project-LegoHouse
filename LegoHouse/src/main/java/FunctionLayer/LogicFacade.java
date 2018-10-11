@@ -2,6 +2,7 @@ package FunctionLayer;
 
 import DBAccess.DBFacade;
 import java.util.HashMap;
+import java.util.List;
 
 public class LogicFacade {
 
@@ -21,6 +22,14 @@ public class LogicFacade {
 
     public static void placeOrder(Order order) throws OrderException {
         DBFacade.createOrder(order);
+    }
+
+    public static int getOrderCount(int id) throws OrderException {
+        return DBFacade.getOrderCount(id);
+    }
+    
+    public static List<Order> getAllOrders(int id) throws OrderException {
+        return DBFacade.getAllOrders(id);
     }
 
 }

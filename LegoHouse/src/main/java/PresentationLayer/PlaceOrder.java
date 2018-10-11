@@ -11,7 +11,12 @@ public class PlaceOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException {
-        int user_id = ((User) request.getSession().getAttribute("user")).getId();
+        int user_id;
+        try {
+            user_id = ((User) request.getSession().getAttribute("user")).getId();
+        } catch (NullPointerException ex) {
+            throw new OrderException(ex.getMessage());
+        }
         int length = (Integer) request.getSession().getAttribute("length");
         int width = (Integer) request.getSession().getAttribute("width");
         int height = (Integer) request.getSession().getAttribute("height");

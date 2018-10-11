@@ -1,7 +1,6 @@
 package FunctionLayer;
 
 import java.util.HashMap;
-import FunctionLayer.LoginSampleException;
 
 public class HouseCalculator {
 
