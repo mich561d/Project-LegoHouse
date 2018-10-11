@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../Style/LegoHouseStyle.css" rel="stylesheet" type="text/css"/>
         <title>Planner Page</title>
     </head>
     <body>
