@@ -18,7 +18,6 @@ public class RedCalculator {
     public HashMap<String, Integer> calculateHouse(HashMap<String, Integer> counter, int length, int width, int height) throws BuilderException {
         this.counter = counter;
         makeWalls(height, length, width);
-        calculateMirror();
         return this.counter;
     }
 
@@ -28,11 +27,11 @@ public class RedCalculator {
                 makeWindowAndDoor(i, length, width);
             } else {
                 if (i % 2 == 0) {
-                    calculateLength(length);
+                    calculateLength(length, 2);
                     calculateWidth(width - 4);
                 } else {
                     calculateWidth(width);
-                    calculateLength(length - 4);
+                    calculateLength(length - 4, 2);
                 }
             }
         }
@@ -41,50 +40,38 @@ public class RedCalculator {
     private void makeWindowAndDoor(int i, int length, int width) throws BuilderException {
         switch (i) {
             case 1:
-                calculateLength(length);
+                calculateLength(length, 1);
                 calculateWidth(width - 4);
                 calculateLengthWithDoor(length, 0);
-                calculateWidth(width - 4);
                 break;
             case 2:
                 calculateWidth(width);
-                calculateLengthWithWindow(length, 2);
-                calculateWidth(width);
-                calculateLengthWithDoor(length, 2);
+                calculateLengthWithWindow(length - 4, 2);
+                calculateLengthWithDoor(length - 4, 2);
                 break;
             case 3:
                 calculateLengthWithWindow(length, 0);
                 calculateWidth(width - 4);
                 calculateLengthWithDoor(length, 0);
-                calculateWidth(width - 4);
                 break;
             default:
-                throw new BuilderException("Somthing went wrong trying to build door and window! Contact Support or try agian.");
+                throw new BuilderException("Somthing went wrong trying to build your door or window! Contact Support or try agian.");
         }
-    }
-
-    private void calculateMirror() {
-        int oldfourxtwo = counter.get("4x2");
-        int oldtwoxtwo = counter.get("2x2");
-        int oldonextwo = counter.get("1x2");
-        counter.put("4x2", oldfourxtwo * 2);
-        counter.put("2x2", oldtwoxtwo * 2);
-        counter.put("1x2", oldonextwo * 2);
     }
 
     private void calculateWidth(int width) {
         for (int i = 0; i < width;) {
             if (i + 4 <= width) {
                 int oldVal = counter.get("4x2");
-                counter.put("4x2", ++oldVal);
+                counter.put("4x2", oldVal + 2);
                 i += 4;
             } else if (i + 2 <= width) {
                 int oldVal = counter.get("2x2");
-                counter.put("2x2", ++oldVal);
+                counter.put("2x2", oldVal + 2);
                 i += 2;
             } else if (i + 1 <= width) {
                 int oldVal = counter.get("1x2");
-                counter.put("1x2", ++oldVal);
+                counter.put("1x2", oldVal + 2);
                 i += 1;
             }
         }
@@ -112,6 +99,8 @@ public class RedCalculator {
                 int oldVal = counter.get("1x2");
                 counter.put("1x2", ++oldVal);
                 i += 1;
+            } else {
+                i++; // Skip a step
             }
         }
     }
@@ -130,23 +119,25 @@ public class RedCalculator {
                 int oldVal = counter.get("1x2");
                 counter.put("1x2", ++oldVal);
                 i += 1;
+            } else {
+                i++; // Skip a step
             }
         }
     }
 
-    private void calculateLength(int length) {
+    private void calculateLength(int length, int plus) {
         for (int i = 0; i < length;) {
             if (i + 4 <= length) {
                 int oldVal = counter.get("4x2");
-                counter.put("4x2", ++oldVal);
+                counter.put("4x2", oldVal + plus);
                 i += 4;
             } else if (i + 2 <= length) {
                 int oldVal = counter.get("2x2");
-                counter.put("2x2", ++oldVal);
+                counter.put("2x2", oldVal + plus);
                 i += 2;
             } else if (i + 1 <= length) {
                 int oldVal = counter.get("1x2");
-                counter.put("1x2", ++oldVal);
+                counter.put("1x2", oldVal + plus);
                 i += 1;
             }
         }
