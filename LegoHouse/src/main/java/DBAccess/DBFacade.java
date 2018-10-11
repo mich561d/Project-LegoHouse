@@ -2,6 +2,7 @@ package DBAccess;
 
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
+import FunctionLayer.OrderException;
 import FunctionLayer.User;
 
 public class DBFacade {
@@ -15,7 +16,7 @@ public class DBFacade {
         return user;
     }
 
-    public static void createOrder(Order order) throws LoginSampleException {
+    public static void createOrder(Order order) throws OrderException {
         OrderMapper.createOrder(order);
     }
 }

@@ -23,7 +23,7 @@ public class HouseCalculator {
         counter.put("1x2", 0);
     }
 
-    public HashMap<String, Integer> buildHouse(int length, int width, int height, String level) throws LoginSampleException {
+    public HashMap<String, Integer> buildHouse(int length, int width, int height, String level) throws LoginSampleException, BuilderException {
         resetCounter();
         switch (level) {
             case "green":
@@ -33,7 +33,7 @@ public class HouseCalculator {
                 counter = YellowCalculator.Calculator().calculateHouse(counter, length, width, height);
                 break;
             case "red":
-                counter = GreenCalculator.Calculator().calculateHouse(counter, length, width, height);
+                counter = RedCalculator.Calculator().calculateHouse(counter, length, width, height);
                 break;
             default:
                 throw new LoginSampleException("Not valid input");

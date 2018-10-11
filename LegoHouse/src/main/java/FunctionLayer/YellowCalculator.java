@@ -40,7 +40,6 @@ public class YellowCalculator {
     }
 
     private void calculateWidth(int width) {
-        //int _width = width - 4;
         for (int i = 0; i < width;) {
             if (i + 4 <= width) {
                 int oldVal = counter.get("4x2");

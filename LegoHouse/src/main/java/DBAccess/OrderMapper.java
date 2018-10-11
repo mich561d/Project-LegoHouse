@@ -1,7 +1,7 @@
 package DBAccess;
 
-import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
+import FunctionLayer.OrderException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,7 @@ import java.sql.Statement;
 
 public class OrderMapper {
 
-    public static void createOrder(Order order) throws LoginSampleException {
+    public static void createOrder(Order order) throws OrderException {
         try {
             Connection con = DBConnector.connection();
             String SQL = "INSERT INTO Orders (user_id, fours, twos, ones, shipped) VALUES (?, ?, ?, ?, ?)";
@@ -26,11 +26,11 @@ public class OrderMapper {
             int id = ids.getInt(1);
             order.setId(id);
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            throw new OrderException(ex.getMessage());
         }
     }
     
-    public static void shipOrder(int id) throws LoginSampleException {
+    public static void shipOrder(int id) throws OrderException {
             try {
             Connection con = DBConnector.connection();
             String SQL = "UPDATE Orders SET shipped = true WHERE id = ?";
@@ -38,7 +38,7 @@ public class OrderMapper {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            throw new OrderException(ex.getMessage());
         }
     }
 }

@@ -15,11 +15,11 @@ public class LogicFacade {
         return user;
     }
 
-    public static HashMap<String, Integer> createList(int length, int width, int height, String level) throws LoginSampleException {
+    public static HashMap<String, Integer> createList(int length, int width, int height, String level) throws LoginSampleException, BuilderException {
         return HouseCalculator.Calculator().buildHouse(length, width, height, level);
     }
 
-    public static void placeOrder(Order order) throws LoginSampleException {
+    public static void placeOrder(Order order) throws OrderException {
         DBFacade.createOrder(order);
     }
 

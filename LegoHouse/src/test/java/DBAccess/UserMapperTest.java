@@ -18,6 +18,7 @@ public class UserMapperTest {
 //    (3,'robin@somewhere.com','batman','employee'),
 //    (4,'someone@nowhere.com','sesam','customer');
 
+    /*
     private static Connection testConnection;
     private static String USER = "testinguser";
     private static String USERPW = "try1try2tryAgain";
@@ -75,7 +76,6 @@ public class UserMapperTest {
         assertEquals("customer", user.getRole());
     }
 
-    /*
     @Test
     public void testCreateUser01() throws LoginSampleException {
         // Can we create a new user - Notice, if login fails, this will fail

@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.BuilderException;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Contruct extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, BuilderException {
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
