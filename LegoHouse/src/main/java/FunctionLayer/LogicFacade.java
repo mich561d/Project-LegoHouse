@@ -27,9 +27,33 @@ public class LogicFacade {
     public static int getOrderCount(int id) throws OrderException {
         return DBFacade.getOrderCount(id);
     }
-    
-    public static List<Order> getAllOrders(int id) throws OrderException {
-        return DBFacade.getAllOrders(id);
+
+    public static List<Order> getAllOrdersByUser(int id) throws OrderException {
+        return DBFacade.getAllOrdersByUser(id);
+    }
+
+    public static int getAllOrderCount() throws OrderException {
+        return DBFacade.getAllOrderCount();
+    }
+
+    public static List<Order> getAllOrders() throws OrderException {
+        return DBFacade.getAllOrders();
+    }
+
+    public static int getAllUserCount() throws UserException{
+        return DBFacade.getAllUserCount();
+    }
+
+    public static List<User> getAllUsers() throws UserException{
+        return DBFacade.getAllUsers();
+    }
+
+    public static void makeAdmin(int id) throws UserException {
+        DBFacade.makeAdmin(id);
+    }
+
+    public static void sendOrder(int id) throws OrderException {
+        DBFacade.sendOrder(id);
     }
 
 }

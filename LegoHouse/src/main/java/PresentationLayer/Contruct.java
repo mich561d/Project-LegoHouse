@@ -3,9 +3,6 @@ package PresentationLayer;
 import FunctionLayer.BuilderException;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-import FunctionLayer.Order;
-import FunctionLayer.OrderException;
-import FunctionLayer.User;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Contruct extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, BuilderException, OrderException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, BuilderException {
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));

@@ -3,6 +3,7 @@ package PresentationLayer;
 import FunctionLayer.BuilderException;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.OrderException;
+import FunctionLayer.UserException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +29,7 @@ public class FrontController extends HttpServlet {
             Command action = Command.from(request);
             String view = action.execute(request, response);
             request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
-        } catch (LoginSampleException | BuilderException | OrderException ex) {
+        } catch (LoginSampleException | BuilderException | OrderException | UserException ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }

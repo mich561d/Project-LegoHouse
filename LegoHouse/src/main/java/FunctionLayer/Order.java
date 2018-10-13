@@ -3,9 +3,9 @@ package FunctionLayer;
 public class Order {
 
     int id, user_id, length, width, height;
-    boolean shipped;
+    String shipped;
 
-    public Order(int user_id, int length, int width, int height, boolean shipped) {
+    public Order(int user_id, int length, int width, int height, String shipped) {
         this.user_id = user_id;
         this.length = length;
         this.width = width;
@@ -54,13 +54,10 @@ public class Order {
     }
 
     public String isShipped() {
-        if (shipped) {
-            return "true";
-        }
-        return "false";
+        return shipped;
     }
 
-    public void setShipped(boolean shipped) {
+    public void setShipped(String shipped) {
         this.shipped = shipped;
     }
 
