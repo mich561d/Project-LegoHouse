@@ -15,13 +15,13 @@ public class SendOrder extends Command {
         try {
             int id = Integer.parseInt(request.getParameter("orderId"));
             LogicFacade.sendOrder(id);
-            request.getSession().setAttribute("orderDone", "order shipped!");
+            request.getSession().setAttribute("orderMsg", "order shipped!");
             int orderCount = LogicFacade.getAllOrderCount();
             request.getSession().setAttribute("orderCount", orderCount);
             List<Order> orders = LogicFacade.getAllOrders();
             request.getSession().setAttribute("orders", orders);
         } catch (OrderException | NumberFormatException e) {
-            request.getSession().setAttribute("orderError", e.getMessage());
+            request.getSession().setAttribute("orderMsg", e.getMessage());
         }
         return "employeepage";
     }

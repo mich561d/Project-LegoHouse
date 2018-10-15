@@ -24,10 +24,8 @@
                                 <br><br>
                                 <input type="submit" value="Send Order">
                             </form>
-                            <% if (session.getAttribute("orderError") != null) {
-                                    session.getAttribute("orderError");
-                                } else if (session.getAttribute("orderDone") != null) {
-                                    session.getAttribute("orderDone");
+                            <% if (session.getAttribute("orderMsg") != null) {
+                                    out.println(session.getAttribute("orderMsg"));
                                 } else { %>
                             <br>
                             <%}%>
@@ -43,10 +41,8 @@
                                 <br><br>
                                 <input type="submit" value="Make Admin">
                             </form>
-                            <% if (session.getAttribute("userError") != null) {
-                                    session.getAttribute("userError");
-                                } else if (session.getAttribute("userDone") != null) {
-                                    session.getAttribute("userDone");
+                            <% if (session.getAttribute("userMsg") != null) {
+                                    out.println(session.getAttribute("userMsg"));
                                 } else { %>
                             <br>
                             <%}%>

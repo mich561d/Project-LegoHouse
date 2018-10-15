@@ -14,13 +14,13 @@ public class MakeAdmin extends Command {
         try {
             int id = Integer.parseInt(request.getParameter("userId"));
             LogicFacade.makeAdmin(id);
-            request.getSession().setAttribute("userDone", "User promoted!!");
+            request.getSession().setAttribute("userMsg", "User promoted!!");
             int userCount = LogicFacade.getAllUserCount();
             request.getSession().setAttribute("userCount", userCount);
             List<User> users = LogicFacade.getAllUsers();
             request.getSession().setAttribute("users", users);
         } catch (UserException | NumberFormatException e) {
-            request.getSession().setAttribute("userError", e.getMessage());
+            request.getSession().setAttribute("userMsg", e.getMessage());
         }
         return "employeepage";
     }
