@@ -12,7 +12,7 @@
     <body>
         <h1>Hello <%=((User) request.getSession().getAttribute("user")).getEmail()%> </h1>
         You are now logged in as a customer of our wonderful site.
-        <br/>
+        <br/><br/>
         Go to planner:
         <br/>
         <form name="planner" action="FrontController" method="POST">
