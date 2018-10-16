@@ -6,7 +6,7 @@ public class HouseCalculator {
 
     private static HouseCalculator singleton;
 
-    public static HouseCalculator Calculator() {
+    public static HouseCalculator calculator() {
         if (singleton == null) {
             singleton = new HouseCalculator();
         }
