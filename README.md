@@ -3,4 +3,5 @@ This is a school project made by Michael Due Pedersen - 2. Term Academy Professi
 
 ## Logins:
 Admin : admin@nowhere.com - sesam
+
 User : someone@nowhere.com - sesam
